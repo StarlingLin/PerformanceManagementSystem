@@ -41,6 +41,14 @@ public:
 	
 	//写入学生信息
 	void WriteStudentInfo();
+	//写入学生成绩
+	void WriteScoreInfo();
+	//写入论文信息
+	void WriteThesisInfo();
+	//写入项目信息
+	void WriteProjectInfo();
+	//写入获奖信息
+	void WriteAwardInfo();
 
 
 	//通过学号查找学生信息

@@ -281,7 +281,7 @@ void CInfoFile::ReadProjectInfo()
 }
 
 //读取学生获奖
-//学生获奖文件格式：学号|奖项名称|颁奖单位|获奖级别|获奖时间|获奖人员|成员列表
+//学生获奖文件格式：学号|奖项名称|颁奖单位|获奖级别|获奖时间|指导老师|成员列表
 void CInfoFile::ReadAwardInfo()
 {
 	ifstream ifs(_F_AWARD);
@@ -328,7 +328,7 @@ void CInfoFile::ReadAwardInfo()
 		pStu->award[pStu->awardNum - 1].awardDate.month = atoi(q);
 		q = strtok(NULL, "-");
 		pStu->award[pStu->awardNum - 1].awardDate.day = atoi(q);
-		//读取获奖人员
+		//读取指导老师
 		p = strtok(NULL, "|");
 		strcpy(pStu->award[pStu->awardNum - 1].member[0], p);
 		//读取成员列表（以顿号分隔）
@@ -367,6 +367,148 @@ void CInfoFile::WriteStudentInfo()
 		ofs << pStu->thesisNum << "|";
 		ofs << pStu->projectNum << "|";
 		ofs << pStu->awardNum << endl;
+
+		pcur = pcur->next;
+	}
+
+	ofs.close();
+}
+
+//写入学生成绩
+void CInfoFile::WriteScoreInfo()
+{
+	ofstream ofs(_F_SCORE);
+
+	//写入表头
+	ofs << "学号|课程名称|成绩" << endl;
+
+	Node* pcur = student_head->next;
+	while (pcur != NULL)
+	{
+		Student* pStu = (Student*)pcur->data;
+
+		for (int i = 0; i < pStu->scoreNum; i++)
+		{
+			//写入学生成绩
+			ofs << pStu->id << "|";
+			ofs << pStu->score[i].subject << "|";
+			ofs << pStu->score[i].score << endl;
+		}
+
+		pcur = pcur->next;
+	}
+
+	ofs.close();
+}
+
+//写入学生论文
+void CInfoFile::WriteThesisInfo()
+{
+	ofstream ofs(_F_THESIS);
+
+	//写入表头
+	ofs << "学号|论文标题|期刊名称|页码信息|发表时间|论文级别|通讯作者|作者列表" << endl;
+
+	Node* pcur = student_head->next;
+	while (pcur != NULL)
+	{
+		Student* pStu = (Student*)pcur->data;
+
+		for (int i = 0; i < pStu->thesisNum; i++)
+		{
+			//写入学生论文
+			ofs << pStu->id << "|";
+			ofs << pStu->thesis[i].title << "|";
+			ofs << pStu->thesis[i].periodical << "|";
+			ofs << pStu->thesis[i].pagination << "|";
+			ofs << pStu->thesis[i].publishDate.year << "-" << pStu->thesis[i].publishDate.month << "-" << pStu->thesis[i].publishDate.day << "|";
+			ofs << pStu->thesis[i].grade << "|";
+			ofs << pStu->thesis[i].author[0] << "|";
+			for (int j = 1; j < MEMBER_MAX; j++)
+			{
+				if (strlen(pStu->thesis[i].author[j]) > 0)
+				{
+					ofs << pStu->thesis[i].author[j] << "、";
+				}
+			}
+			ofs << endl;
+		}
+
+		pcur = pcur->next;
+	}
+
+	ofs.close();
+}
+
+//写入学生项目
+void CInfoFile::WriteProjectInfo()
+{
+	ofstream ofs(_F_PROJECT);
+
+	//写入表头
+	ofs << "学号|项目名称|项目编号|开始时间|结束时间|指导老师|成员列表" << endl;
+
+	Node* pcur = student_head->next;
+	while (pcur != NULL)
+	{
+		Student* pStu = (Student*)pcur->data;
+
+		for (int i = 0; i < pStu->projectNum; i++)
+		{
+			//写入学生项目
+			ofs << pStu->id << "|";
+			ofs << pStu->project[i].title << "|";
+			ofs << pStu->project[i].projectID << "|";
+			ofs << pStu->project[i].startDate.year << "-" << pStu->project[i].startDate.month << "-" << pStu->project[i].startDate.day << "|";
+			ofs << pStu->project[i].endDate.year << "-" << pStu->project[i].endDate.month << "-" << pStu->project[i].endDate.day << "|";
+			ofs << pStu->project[i].member[0] << "|";
+			for (int j = 1; j < MEMBER_MAX; j++)
+			{
+				if (strlen(pStu->project[i].member[j]) > 0)
+				{
+					ofs << pStu->project[i].member[j] << "、";
+				}
+			}
+			ofs << endl;
+		}
+
+		pcur = pcur->next;
+	}
+
+	ofs.close();
+}
+
+//写入学生获奖
+void CInfoFile::WriteAwardInfo()
+{
+	ofstream ofs(_F_AWARD);
+
+	//写入表头
+	ofs << "学号|奖项名称|颁奖单位|获奖级别|获奖时间|指导老师|成员列表" << endl;
+
+	Node* pcur = student_head->next;
+	while (pcur != NULL)
+	{
+		Student* pStu = (Student*)pcur->data;
+
+		for (int i = 0; i < pStu->awardNum; i++)
+		{
+			//写入学生获奖
+			ofs << pStu->id << "|";
+			ofs << pStu->award[i].title << "|";
+			ofs << pStu->award[i].organization << "|";
+			ofs << pStu->award[i].level << "|";
+			ofs << pStu->award[i].awardDate.year << "-" << pStu->award[i].awardDate.month << "-" << pStu->award[i].awardDate.day << "|";
+			ofs << pStu->award[i].member[0] << "|";
+			for (int j = 1; j < MEMBER_MAX; j++)
+			{
+				if (strlen(pStu->award[i].member[j]) > 0)
+				{
+					ofs << pStu->award[i].member[j] << "、";
+				}
+			}
+			ofs << endl;
+		}
 
 		pcur = pcur->next;
 	}
