@@ -5,8 +5,8 @@
 #include "pch.h"
 #include "framework.h"
 #include "素质类项目成绩管理系统.h"
-
 #include "MainFrm.h"
+#include "InfoFile.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -59,6 +59,15 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	MoveWindow(0, 0, 800, 600);
 	//设置居中显示
 	CenterWindow();
+
+	//测试CInfoFile类
+	//CInfoFile file;
+	//CString name, pwd_md5;
+	//file.ReadLoginInfo(name, pwd_md5);
+	//MessageBox(name + ":" + pwd_md5);
+	//file.WritePwd("root", "123456");
+	//file.ReadLoginInfo(name, pwd_md5);
+	//MessageBox(name + ":" + pwd_md5);
 
 	return 0;
 }
