@@ -1,14 +1,13 @@
 ﻿
-// 素质类项目成绩管理系统.h: PROJECT_NAME 应用程序的主头文件
+// 素质类项目成绩管理系统.h: 素质类项目成绩管理系统 应用程序的主头文件
 //
-
 #pragma once
 
 #ifndef __AFXWIN_H__
 	#error "在包含此文件之前包含 'pch.h' 以生成 PCH"
 #endif
 
-#include "resource.h"		// 主符号
+#include "resource.h"       // 主符号
 
 
 // C素质类项目成绩管理系统App:
@@ -18,14 +17,16 @@
 class C素质类项目成绩管理系统App : public CWinApp
 {
 public:
-	C素质类项目成绩管理系统App();
+	C素质类项目成绩管理系统App() noexcept;
+
 
 // 重写
 public:
 	virtual BOOL InitInstance();
+	virtual int ExitInstance();
 
 // 实现
-
+	afx_msg void OnAppAbout();
 	DECLARE_MESSAGE_MAP()
 };
 

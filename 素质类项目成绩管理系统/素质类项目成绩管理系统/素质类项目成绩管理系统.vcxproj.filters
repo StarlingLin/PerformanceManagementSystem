@@ -18,13 +18,19 @@
     <ClInclude Include="素质类项目成绩管理系统.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="素质类项目成绩管理系统Dlg.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="framework.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="素质类项目成绩管理系统Doc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="素质类项目成绩管理系统View.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Resource.h">
@@ -38,7 +44,13 @@
     <ClCompile Include="素质类项目成绩管理系统.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="素质类项目成绩管理系统Dlg.cpp">
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="素质类项目成绩管理系统Doc.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="素质类项目成绩管理系统View.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
@@ -56,7 +68,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\素质类项目成绩管理系统Doc.ico">
+      <Filter>资源文件</Filter>
+    </Image>
     <Image Include="res\素质类项目成绩管理系统.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\System.ico">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>

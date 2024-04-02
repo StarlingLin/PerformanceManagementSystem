@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
-    <ProjectGuid>{ABB3744F-5A8F-4929-9576-B35EF50DB82D}</ProjectGuid>
+    <ProjectGuid>{60FA624D-484E-4C06-89DC-A72E89631D55}</ProjectGuid>
     <Keyword>MFCProj</Keyword>
     <RootNamespace>素质类项目成绩管理系统</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
@@ -91,7 +91,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;_DEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
@@ -184,13 +184,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
+    <ClInclude Include="MainFrm.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="素质类项目成绩管理系统.h" />
-    <ClInclude Include="素质类项目成绩管理系统Dlg.h" />
+    <ClInclude Include="素质类项目成绩管理系统Doc.h" />
+    <ClInclude Include="素质类项目成绩管理系统View.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -198,7 +201,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="素质类项目成绩管理系统.cpp" />
-    <ClCompile Include="素质类项目成绩管理系统Dlg.cpp" />
+    <ClCompile Include="素质类项目成绩管理系统Doc.cpp" />
+    <ClCompile Include="素质类项目成绩管理系统View.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="My.rc" />
@@ -207,7 +211,9 @@
     <None Include="res\My.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\System.ico" />
     <Image Include="res\素质类项目成绩管理系统.ico" />
+    <Image Include="res\素质类项目成绩管理系统Doc.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
