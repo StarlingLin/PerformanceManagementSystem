@@ -1,8 +1,16 @@
-﻿  MainFrm.cpp
-Z:\PerformanceManagementSystem\素质类项目成绩管理系统\素质类项目成绩管理系统\MainFrm.cpp(55,38): warning C4311: “类型强制转换”: 从“HICON”到“LONG”的指针截断
+﻿  CDisplayView.cpp
+  CLoginDlg.cpp
+  CSelectView.cpp
+  CUserDlg.cpp
+  MainFrm.cpp
+Z:\PerformanceManagementSystem\素质类项目成绩管理系统\素质类项目成绩管理系统\MainFrm.cpp(66,38): warning C4311: “类型强制转换”: 从“HICON”到“LONG”的指针截断
   (编译源文件“/MainFrm.cpp”)
   
-Z:\PerformanceManagementSystem\素质类项目成绩管理系统\素质类项目成绩管理系统\MainFrm.cpp(55,38): warning C4302: “类型强制转换”: 从“HICON”到“LONG”截断
+Z:\PerformanceManagementSystem\素质类项目成绩管理系统\素质类项目成绩管理系统\MainFrm.cpp(66,38): warning C4302: “类型强制转换”: 从“HICON”到“LONG”截断
   (编译源文件“/MainFrm.cpp”)
   
+  素质类项目成绩管理系统.cpp
+  素质类项目成绩管理系统Doc.cpp
+  素质类项目成绩管理系统View.cpp
+  正在生成代码...
   素质类项目成绩管理系统.vcxproj -> Z:\PerformanceManagementSystem\素质类项目成绩管理系统\x64\Debug\素质类项目成绩管理系统.exe

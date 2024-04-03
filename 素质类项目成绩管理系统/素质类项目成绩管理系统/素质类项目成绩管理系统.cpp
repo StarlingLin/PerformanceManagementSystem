@@ -11,6 +11,7 @@
 
 #include "素质类项目成绩管理系统Doc.h"
 #include "素质类项目成绩管理系统View.h"
+#include "CLoginDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -69,6 +70,10 @@ BOOL C素质类项目成绩管理系统App::InitInstance()
 	// 公共控件类。
 	InitCtrls.dwICC = ICC_WIN95_CLASSES;
 	InitCommonControlsEx(&InitCtrls);
+
+	//创建登录对话框（模态）
+	CLoginDlg dlg;
+	dlg.DoModal();
 
 	CWinApp::InitInstance();
 

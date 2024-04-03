@@ -4,6 +4,15 @@
 
 #pragma once
 
+//自定义事件
+#define NM_A	(WM_APP + 1)
+#define NM_B	(WM_APP + 2)
+#define NM_C	(WM_APP + 3)
+#define NM_D	(WM_APP + 4)
+#define NM_D1	(WM_APP + 5)
+#define NM_D2	(WM_APP + 6)
+#define NM_D3	(WM_APP + 7)
+
 class CMainFrame : public CFrameWnd
 {
 	
@@ -37,6 +46,10 @@ protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	DECLARE_MESSAGE_MAP()
 
+private:
+	CSplitterWnd m_spliter;
+	virtual BOOL OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext);
+	afx_msg LRESULT OnMyChange(WPARAM wParam, LPARAM lParam);
 };
 
 

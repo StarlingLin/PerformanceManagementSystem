@@ -183,11 +183,16 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CDisplayView.h" />
+    <ClInclude Include="CLoginDlg.h" />
+    <ClInclude Include="CSelectView.h" />
+    <ClInclude Include="CUserDlg.h" />
     <ClInclude Include="DataStruct.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="InfoFile.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="md5.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
@@ -196,9 +201,14 @@
     <ClInclude Include="素质类项目成绩管理系统View.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CDisplayView.cpp" />
+    <ClCompile Include="CLoginDlg.cpp" />
+    <ClCompile Include="CSelectView.cpp" />
+    <ClCompile Include="CUserDlg.cpp" />
     <ClCompile Include="InfoFile.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="md5.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -216,6 +226,11 @@
     <None Include="res\My.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\1.ico" />
+    <Image Include="res\2.ico" />
+    <Image Include="res\3.ico" />
+    <Image Include="res\4.ico" />
+    <Image Include="res\login.bmp" />
     <Image Include="res\System.ico" />
     <Image Include="res\素质类项目成绩管理系统.ico" />
     <Image Include="res\素质类项目成绩管理系统Doc.ico" />

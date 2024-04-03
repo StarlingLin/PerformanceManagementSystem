@@ -7,6 +7,9 @@
 #include "素质类项目成绩管理系统.h"
 #include "MainFrm.h"
 #include "InfoFile.h"
+#include "CSelectView.h"
+#include "CDisplayView.h"
+#include "CUserDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -18,6 +21,14 @@ IMPLEMENT_DYNCREATE(CMainFrame, CFrameWnd)
 
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_CREATE()
+	//自定义消息
+	ON_MESSAGE(NM_A, OnMyChange)
+	ON_MESSAGE(NM_B, OnMyChange)
+	ON_MESSAGE(NM_C, OnMyChange)
+	ON_MESSAGE(NM_D, OnMyChange)
+	ON_MESSAGE(NM_D1, OnMyChange)
+	ON_MESSAGE(NM_D2, OnMyChange)
+	ON_MESSAGE(NM_D3, OnMyChange)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -56,7 +67,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	//设置右标题
 	SetTitle(_T("吉林大学"));
 	//设置窗口大小
-	MoveWindow(0, 0, 800, 600);
+	MoveWindow(0, 0, 1400, 1000);
 	//设置居中显示
 	CenterWindow();
 
@@ -78,6 +89,8 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 		return FALSE;
 	// TODO: 在此处通过修改
 	//  CREATESTRUCT cs 来修改窗口类或样式
+	//设置窗口大小不可改变
+	cs.style &= ~WS_THICKFRAME;
 
 	return TRUE;
 }
@@ -99,3 +112,37 @@ void CMainFrame::Dump(CDumpContext& dc) const
 
 // CMainFrame 消息处理程序
 
+
+
+BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
+{
+	// TODO: 在此添加专用代码和/或调用基类
+
+	// return CFrameWnd::OnCreateClient(lpcs, pContext);
+	//创建分割窗口
+	m_spliter.CreateStatic(this, 1, 2);
+	//创建左视图
+	m_spliter.CreateView(0, 0, RUNTIME_CLASS(CSelectView), CSize(200, 800), pContext);
+	//创建右视图
+	m_spliter.CreateView(0, 1, RUNTIME_CLASS(CDisplayView), CSize(1000, 800), pContext);
+
+	return TRUE;
+}
+
+LRESULT CMainFrame::OnMyChange(WPARAM wParam, LPARAM lParam)
+{
+	CCreateContext context;
+	if (wParam == NM_A)
+	{
+		context.m_pNewViewClass = RUNTIME_CLASS(CUserDlg);
+		context.m_pCurrentFrame = this;
+		context.m_pLastView = (CView*)m_spliter.GetPane(0, 1);
+		m_spliter.DeleteView(0, 1);
+		m_spliter.CreateView(0, 1, RUNTIME_CLASS(CUserDlg), CSize(1000, 800), &context);
+		CUserDlg* pView = (CUserDlg*)m_spliter.GetPane(0, 1);
+		m_spliter.RecalcLayout();
+		pView->OnInitialUpdate();
+		m_spliter.SetActivePane(0, 1);
+	}
+	return 0;
+}

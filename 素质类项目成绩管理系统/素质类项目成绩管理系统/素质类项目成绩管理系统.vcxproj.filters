@@ -48,6 +48,21 @@
     <ClInclude Include="List.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CLoginDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="md5.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CSelectView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CDisplayView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CUserDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="素质类项目成绩管理系统.cpp">
@@ -71,6 +86,21 @@
     <ClCompile Include="List.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="CLoginDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="md5.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CSelectView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CDisplayView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CUserDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="My.rc">
@@ -90,6 +120,21 @@
       <Filter>资源文件</Filter>
     </Image>
     <Image Include="res\System.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\login.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\1.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\2.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\3.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\4.ico">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>
