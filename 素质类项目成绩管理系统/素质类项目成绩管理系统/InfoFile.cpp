@@ -43,6 +43,7 @@ void CInfoFile::ReadStudentInfo()
 	ifstream ifs(_F_STUDENT);
 
 	student_num = 0;
+	student_head = (Node*)malloc(sizeof(Student));
 	InitList(student_head);
 
 	char buf[1024] = { 0 };	//缓冲区
@@ -351,6 +352,12 @@ void CInfoFile::WriteStudentInfo()
 	//写入表头
 	ofs << "学号|姓名|性别|成绩数|论文数|项目数|获奖数" << endl;
 
+	if (student_head == NULL)
+	{
+		ofs.close();
+		return;
+	}
+
 	Node* pcur = student_head->next;
 	while (pcur != NULL)
 	{
@@ -527,4 +534,50 @@ Student* CInfoFile::FindStudentByID(int id)
 		pcur = pcur->next;
 	}
 	return NULL;
+}
+
+int CInfoFile::GetStudentNum()
+{
+	Node* pcur = student_head->next;
+	int num = 0;
+	while (pcur != NULL)
+	{
+		num++;
+		pcur = pcur->next;
+	}
+	return num;
+}
+
+Student* CInfoFile::GetStudent(int i)
+{
+	Node* pcur = student_head->next;
+	while (pcur != NULL)
+	{
+		if (i == 0)
+		{
+			return (Student*)pcur->data;
+		}
+		pcur = pcur->next;
+		i--;
+	}
+	return NULL;
+}
+
+void CInfoFile::DeleteStudent(int pos)
+{
+	Node* pcur = student_head->next;
+	Node* ppre = student_head;
+	while (pcur != NULL)
+	{
+		if (pos == 0)
+		{
+			ppre->next = pcur->next;
+			free(pcur->data);
+			free(pcur);
+			break;
+		}
+		ppre = pcur;
+		pcur = pcur->next;
+		pos--;
+	}
 }

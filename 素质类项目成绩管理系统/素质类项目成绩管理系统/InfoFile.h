@@ -48,6 +48,13 @@ public:
 	//写入获奖信息
 	void WriteAwardInfo();
 
+	//删除学生信息
+	void DeleteStudent(int pos);
+
+	//学生数量
+	int GetStudentNum();
+	//第i个学生
+	Student* GetStudent(int i);
 
 	//通过学号查找学生信息
 	Student* FindStudentByID(int id);

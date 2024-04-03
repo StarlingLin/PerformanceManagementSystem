@@ -1,6 +1,8 @@
 ﻿#pragma once
 
-
+#include "TabSheet.h"
+#include "CStuFindDlg.h"
+#include "CStuShowDlg.h"
 
 // CStuManageDlg 窗体视图
 
@@ -27,6 +29,13 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
 
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnTcnSelchangeTab1(NMHDR* pNMHDR, LRESULT* pResult);
+	virtual void OnInitialUpdate();
+private:
+	CTabSheet m_tab_stu;
+	CStuFindDlg m_dlg_find;
+	CStuShowDlg m_dlg_show;
 };
 
 

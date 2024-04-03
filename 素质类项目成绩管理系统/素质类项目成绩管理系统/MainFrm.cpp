@@ -73,7 +73,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	//设置右标题
 	SetTitle(_T("吉林大学"));
 	//设置窗口大小
-	MoveWindow(0, 0, 1400, 1000);
+	MoveWindow(0, 0, 1300, 880);
 	//设置居中显示
 	CenterWindow();
 
