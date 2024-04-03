@@ -9,6 +9,7 @@
 #define IDI_ICON1                       310
 #define IDI_ICON_SYS                    310
 #define IDI_LOGIN                       310
+#define IDD_LOGIN                       310
 #define IDD_CDisplayView                311
 #define IDD_CUserDlg                    312
 #define IDB_LOGIN                       313
@@ -16,6 +17,13 @@
 #define IDI_ICON3                       315
 #define IDI_ICON4                       316
 #define IDI_ICON5                       317
+#define IDD_CStuManageDlg               318
+#define IDD_DIALOG1                     320
+#define IDD_CScoreManageDlg             321
+#define IDD_CTermManageDlg              322
+#define IDD_CThesisManageDlg            323
+#define IDD_CProjectManageDlg           324
+#define IDD_CAwardManageDlg             325
 #define IDC_EDIT1                       1000
 #define IDC_EDIT2                       1001
 #define IDC_BUTTON1                     1002
@@ -28,9 +36,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        320
+#define _APS_NEXT_RESOURCE_VALUE        326
 #define _APS_NEXT_COMMAND_VALUE         32772
 #define _APS_NEXT_CONTROL_VALUE         1004
-#define _APS_NEXT_SYMED_VALUE           313
+#define _APS_NEXT_SYMED_VALUE           326
 #endif
 #endif

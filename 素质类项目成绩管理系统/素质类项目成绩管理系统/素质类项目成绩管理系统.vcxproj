@@ -183,9 +183,15 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CAwardManageDlg.h" />
     <ClInclude Include="CDisplayView.h" />
     <ClInclude Include="CLoginDlg.h" />
+    <ClInclude Include="CProjectManageDlg.h" />
+    <ClInclude Include="CScoreManageDlg.h" />
     <ClInclude Include="CSelectView.h" />
+    <ClInclude Include="CStuManageDlg.h" />
+    <ClInclude Include="CTermManageDlg.h" />
+    <ClInclude Include="CThesisManageDlg.h" />
     <ClInclude Include="CUserDlg.h" />
     <ClInclude Include="DataStruct.h" />
     <ClInclude Include="framework.h" />
@@ -201,9 +207,15 @@
     <ClInclude Include="素质类项目成绩管理系统View.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CAwardManageDlg.cpp" />
     <ClCompile Include="CDisplayView.cpp" />
     <ClCompile Include="CLoginDlg.cpp" />
+    <ClCompile Include="CProjectManageDlg.cpp" />
+    <ClCompile Include="CScoreManageDlg.cpp" />
     <ClCompile Include="CSelectView.cpp" />
+    <ClCompile Include="CStuManageDlg.cpp" />
+    <ClCompile Include="CTermManageDlg.cpp" />
+    <ClCompile Include="CThesisManageDlg.cpp" />
     <ClCompile Include="CUserDlg.cpp" />
     <ClCompile Include="InfoFile.cpp" />
     <ClCompile Include="List.cpp" />

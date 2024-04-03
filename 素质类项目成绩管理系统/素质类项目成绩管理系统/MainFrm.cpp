@@ -10,6 +10,12 @@
 #include "CSelectView.h"
 #include "CDisplayView.h"
 #include "CUserDlg.h"
+#include "CStuManageDlg.h"
+#include "CScoreManageDlg.h"
+#include "CTermManageDlg.h"
+#include "CThesisManageDlg.h"
+#include "CProjectManageDlg.h"
+#include "CAwardManageDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -144,5 +150,78 @@ LRESULT CMainFrame::OnMyChange(WPARAM wParam, LPARAM lParam)
 		pView->OnInitialUpdate();
 		m_spliter.SetActivePane(0, 1);
 	}
+	else if (wParam == NM_B)
+	{
+		context.m_pNewViewClass = RUNTIME_CLASS(CStuManageDlg);
+		context.m_pCurrentFrame = this;
+		context.m_pLastView = (CView*)m_spliter.GetPane(0, 1);
+		m_spliter.DeleteView(0, 1);
+		m_spliter.CreateView(0, 1, RUNTIME_CLASS(CStuManageDlg), CSize(1000, 800), &context);
+		CStuManageDlg* pView = (CStuManageDlg*)m_spliter.GetPane(0, 1);
+		m_spliter.RecalcLayout();
+		pView->OnInitialUpdate();
+		m_spliter.SetActivePane(0, 1);
+	}
+	else if (wParam == NM_C)
+	{
+		context.m_pNewViewClass = RUNTIME_CLASS(CScoreManageDlg);
+		context.m_pCurrentFrame = this;
+		context.m_pLastView = (CView*)m_spliter.GetPane(0, 1);
+		m_spliter.DeleteView(0, 1);
+		m_spliter.CreateView(0, 1, RUNTIME_CLASS(CScoreManageDlg), CSize(1000, 800), &context);
+		CScoreManageDlg* pView = (CScoreManageDlg*)m_spliter.GetPane(0, 1);
+		m_spliter.RecalcLayout();
+		pView->OnInitialUpdate();
+		m_spliter.SetActivePane(0, 1);
+	}
+	else if (wParam == NM_D)
+	{
+		context.m_pNewViewClass = RUNTIME_CLASS(CTermManageDlg);
+		context.m_pCurrentFrame = this;
+		context.m_pLastView = (CView*)m_spliter.GetPane(0, 1);
+		m_spliter.DeleteView(0, 1);
+		m_spliter.CreateView(0, 1, RUNTIME_CLASS(CTermManageDlg), CSize(1000, 800), &context);
+		CTermManageDlg* pView = (CTermManageDlg*)m_spliter.GetPane(0, 1);
+		m_spliter.RecalcLayout();
+		pView->OnInitialUpdate();
+		m_spliter.SetActivePane(0, 1);
+	}
+	else if (wParam == NM_D1)
+	{
+		context.m_pNewViewClass = RUNTIME_CLASS(CThesisManageDlg);
+		context.m_pCurrentFrame = this;
+		context.m_pLastView = (CView*)m_spliter.GetPane(0, 1);
+		m_spliter.DeleteView(0, 1);
+		m_spliter.CreateView(0, 1, RUNTIME_CLASS(CThesisManageDlg), CSize(1000, 800), &context);
+		CThesisManageDlg* pView = (CThesisManageDlg*)m_spliter.GetPane(0, 1);
+		m_spliter.RecalcLayout();
+		pView->OnInitialUpdate();
+		m_spliter.SetActivePane(0, 1);
+	}
+	else if (wParam == NM_D2)
+	{
+		context.m_pNewViewClass = RUNTIME_CLASS(CProjectManageDlg);
+		context.m_pCurrentFrame = this;
+		context.m_pLastView = (CView*)m_spliter.GetPane(0, 1);
+		m_spliter.DeleteView(0, 1);
+		m_spliter.CreateView(0, 1, RUNTIME_CLASS(CProjectManageDlg), CSize(1000, 800), &context);
+		CProjectManageDlg* pView = (CProjectManageDlg*)m_spliter.GetPane(0, 1);
+		m_spliter.RecalcLayout();
+		pView->OnInitialUpdate();
+		m_spliter.SetActivePane(0, 1);
+	}
+	else if (wParam == NM_D3)
+	{
+		context.m_pNewViewClass = RUNTIME_CLASS(CAwardManageDlg);
+		context.m_pCurrentFrame = this;
+		context.m_pLastView = (CView*)m_spliter.GetPane(0, 1);
+		m_spliter.DeleteView(0, 1);
+		m_spliter.CreateView(0, 1, RUNTIME_CLASS(CAwardManageDlg), CSize(1000, 800), &context);
+		CAwardManageDlg* pView = (CAwardManageDlg*)m_spliter.GetPane(0, 1);
+		m_spliter.RecalcLayout();
+		pView->OnInitialUpdate();
+		m_spliter.SetActivePane(0, 1);
+	}
+
 	return 0;
 }

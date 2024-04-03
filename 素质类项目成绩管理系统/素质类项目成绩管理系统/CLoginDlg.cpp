@@ -14,7 +14,7 @@
 IMPLEMENT_DYNAMIC(CLoginDlg, CDialogEx)
 
 CLoginDlg::CLoginDlg(CWnd* pParent /*=nullptr*/)
-	: CDialogEx(IDI_LOGIN, pParent)
+	: CDialogEx(IDD_LOGIN, pParent)
 	, m_pwd(_T(""))
 	, m_user(_T(""))
 {
@@ -56,6 +56,8 @@ void CLoginDlg::OnBnClickedButton1()
 	if (m_user.IsEmpty() || m_pwd.IsEmpty())
 	{
 		MessageBox(_T("用户名或密码不能为空"), _T("登录失败"));
+		m_pwd.Empty();
+		UpdateData(FALSE);
 		return;
 	}
 	//判断用户名和密码是否正确
@@ -75,12 +77,17 @@ void CLoginDlg::OnBnClickedButton1()
 		else
 		{
 			MessageBox(_T("密码错误"), _T("登录失败"));
+			m_pwd.Empty();
+			UpdateData(FALSE);
 			return;
 		}
 	}
 	else
 	{
 		MessageBox(_T("用户名错误"), _T("登录失败"));
+		m_user.Empty();
+		m_pwd.Empty();
+		UpdateData(FALSE);
 		return;
 	}
 }
