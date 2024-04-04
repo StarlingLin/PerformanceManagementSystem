@@ -86,6 +86,12 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	//file.ReadLoginInfo(name, pwd_md5);
 	//MessageBox(name + ":" + pwd_md5);
 
+	//CInfoFile file;
+	//file.WriteScoreInfo();
+	//file.WriteThesisInfo();
+	//file.WriteProjectInfo();
+	//file.WriteAwardInfo();
+
 	return 0;
 }
 

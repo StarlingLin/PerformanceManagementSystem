@@ -90,6 +90,9 @@
     <ClInclude Include="CStuShowDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CAddStuDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="素质类项目成绩管理系统.cpp">
@@ -153,6 +156,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CStuShowDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CAddStuDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

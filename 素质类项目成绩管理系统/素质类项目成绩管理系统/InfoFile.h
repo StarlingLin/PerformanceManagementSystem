@@ -48,6 +48,11 @@ public:
 	//写入获奖信息
 	void WriteAwardInfo();
 
+	//全部信息读取
+	void ReadAllInfo();
+	//全部信息写入文件
+	void WriteAllInfo();
+
 	//删除学生信息
 	void DeleteStudent(int pos);
 
@@ -58,6 +63,15 @@ public:
 
 	//通过学号查找学生信息
 	Student* FindStudentByID(int id);
+
+	//判断学号是否存在
+	bool IsIDExist(int id);
+
+	//添加学生信息
+	void AddStudent(Student* stu);
+
+	//按学号排序
+	void SortByID();
 
 	Node* student_head;	//学生信息链表头
 	int student_num;	//学生信息数量

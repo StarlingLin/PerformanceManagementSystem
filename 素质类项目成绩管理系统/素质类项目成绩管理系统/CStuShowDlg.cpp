@@ -5,6 +5,7 @@
 #include "素质类项目成绩管理系统.h"
 #include "afxdialogex.h"
 #include "CStuShowDlg.h"
+#include "CAddStuDlg.h"
 #include "InfoFile.h"
 
 
@@ -157,6 +158,7 @@ void CStuShowDlg::OnBnClickedButton4()
 	file.WriteStudentInfo();
 
 	//更新列表控件
+	m_list_stuShow.DeleteAllItems();
 	for (int i = 0; i < file.GetStudentNum(); i++)
 	{
 		Student* stu = file.GetStudent(i);
@@ -186,10 +188,34 @@ void CStuShowDlg::OnBnClickedButton4()
 void CStuShowDlg::OnBnClickedButton1()
 {
 	// TODO: 在此添加控件通知处理程序代码
+	CAddStuDlg dlg;
+	dlg.DoModal();
+
+	//更新列表控件
 	CInfoFile file;
 	file.ReadStudentInfo();
+	m_list_stuShow.DeleteAllItems();
+	for (int i = 0; i < file.GetStudentNum(); i++)
+	{
+		Student* stu = file.GetStudent(i);
+		wstring tmp = to_wstring(stu->id);
 
+		char* p = stu->name;
+		int len = MultiByteToWideChar(CP_ACP, 0, p, -1, NULL, 0);
+		wchar_t* wideStr = new wchar_t[len];
+		LPCTSTR lpctstr = wideStr;
+		MultiByteToWideChar(CP_ACP, 0, p, -1, wideStr, len);
 
+		char* p1 = stu->gender;
+		int len1 = MultiByteToWideChar(CP_ACP, 0, p1, -1, NULL, 0);
+		wchar_t* wideStr1 = new wchar_t[len1];
+		LPCTSTR lpctstr1 = wideStr1;
+		MultiByteToWideChar(CP_ACP, 0, p1, -1, wideStr1, len1);
+
+		m_list_stuShow.InsertItem(i, tmp.c_str());
+		m_list_stuShow.SetItemText(i, 1, wideStr);
+		m_list_stuShow.SetItemText(i, 2, wideStr1);
+	}
 }
 
 
@@ -207,14 +233,15 @@ void CStuShowDlg::OnBnClickedButton3()
 
 	//删除学生信息
 	CInfoFile file;
-	file.ReadStudentInfo();
+	file.ReadAllInfo();
 
 	file.DeleteStudent(nItem);
 
 	//写入文件
-	file.WriteStudentInfo();
+	file.WriteAllInfo();
 
 	//更新列表控件
+	m_list_stuShow.DeleteAllItems();
 	for (int i = 0; i < file.GetStudentNum(); i++)
 	{
 		Student* stu = file.GetStudent(i);

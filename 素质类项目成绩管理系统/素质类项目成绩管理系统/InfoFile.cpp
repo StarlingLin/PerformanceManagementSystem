@@ -94,6 +94,9 @@ void CInfoFile::ReadStudentInfo()
 	}
 
 	ifs.close();
+	
+	//按学号排序
+	SortByID();
 }
 
 //读取学生成绩
@@ -112,6 +115,8 @@ void CInfoFile::ReadScoreInfo()
 	{
 		int id;	//学号-标识符
 
+		ifs.getline(buf, sizeof(buf));
+
 		//读取学号
 		char* p = strtok(buf, "|");
 		if (p != NULL)
@@ -125,7 +130,6 @@ void CInfoFile::ReadScoreInfo()
 
 		//根据学号查找学生
 		Student* pStu = FindStudentByID(id);
-		pStu->scoreNum++;
 
 		//读取课程名称
 		p = strtok(NULL, "|");
@@ -154,6 +158,8 @@ void CInfoFile::ReadThesisInfo()
 	{
 		int id;	//学号-标识符
 
+		ifs.getline(buf, sizeof(buf));
+
 		//读取学号
 		char* p = strtok(buf, "|");
 		if (p != NULL)
@@ -167,8 +173,7 @@ void CInfoFile::ReadThesisInfo()
 
 		//根据学号查找学生
 		Student* pStu = FindStudentByID(id);
-		pStu->thesisNum++;
-
+		pStu->thesis[pStu->thesisNum - 1].id = id;
 		//读取论文标题
 		p = strtok(NULL, "|");
 		strcpy(pStu->thesis[pStu->thesisNum - 1].title, p);
@@ -179,13 +184,12 @@ void CInfoFile::ReadThesisInfo()
 		p = strtok(NULL, "|");
 		strcpy(pStu->thesis[pStu->thesisNum - 1].pagination, p);
 		//读取发表时间（格式：yyyy-mm-dd）
+		p = strtok(NULL, "-");
+		pStu->thesis[pStu->thesisNum - 1].publishDate.year = atoi(p);
+		p = strtok(NULL, "-");
+		pStu->thesis[pStu->thesisNum - 1].publishDate.month = atoi(p);
 		p = strtok(NULL, "|");
-		char*q = strtok(p, "-");
-		pStu->thesis[pStu->thesisNum - 1].publishDate.year = atoi(q);
-		q = strtok(NULL, "-");
-		pStu->thesis[pStu->thesisNum - 1].publishDate.month = atoi(q);
-		q = strtok(NULL, "-");
-		pStu->thesis[pStu->thesisNum - 1].publishDate.day = atoi(q);
+		pStu->thesis[pStu->thesisNum - 1].publishDate.day = atoi(p);
 		//读取论文级别
 		p = strtok(NULL, "|");
 		strcpy(&(pStu->thesis[pStu->thesisNum - 1].grade), p);
@@ -193,13 +197,12 @@ void CInfoFile::ReadThesisInfo()
 		p = strtok(NULL, "|");
 		strcpy(pStu->thesis[pStu->thesisNum - 1].author[0], p);
 		//读取作者列表（以顿号分隔）
-		p = strtok(NULL, "|");
-		q = strtok(p, "、");
+		p = strtok(NULL, "、");
 		int i = 1;
-		while (q != NULL)
+		while (p != NULL)
 		{
-			strcpy(pStu->thesis[pStu->thesisNum - 1].author[i], q);
-			q = strtok(NULL, "、");
+			strcpy(pStu->thesis[pStu->thesisNum - 1].author[i], p);
+			p = strtok(NULL, "、");
 			i++;
 		}
 	}
@@ -223,6 +226,8 @@ void CInfoFile::ReadProjectInfo()
 	{
 		int id;	//学号-标识符
 
+		ifs.getline(buf, sizeof(buf));
+
 		//读取学号
 		char* p = strtok(buf, "|");
 		if (p != NULL)
@@ -236,8 +241,7 @@ void CInfoFile::ReadProjectInfo()
 
 		//根据学号查找学生
 		Student* pStu = FindStudentByID(id);
-		pStu->projectNum++;
-
+		pStu->project[pStu->projectNum - 1].id = id;
 		//读取项目名称
 		p = strtok(NULL, "|");
 		strcpy(pStu->project[pStu->projectNum - 1].title, p);
@@ -245,32 +249,29 @@ void CInfoFile::ReadProjectInfo()
 		p = strtok(NULL, "|");
 		pStu->project[pStu->projectNum - 1].projectID = atoi(p);
 		//读取开始时间（格式：yyyy-mm-dd）
+		p = strtok(NULL, "-");
+		pStu->project[pStu->projectNum - 1].startDate.year = atoi(p);
+		p = strtok(NULL, "-");
+		pStu->project[pStu->projectNum - 1].startDate.month = atoi(p);
 		p = strtok(NULL, "|");
-		char* q = strtok(p, "-");
-		pStu->project[pStu->projectNum - 1].startDate.year = atoi(q);
-		q = strtok(NULL, "-");
-		pStu->project[pStu->projectNum - 1].startDate.month = atoi(q);
-		q = strtok(NULL, "-");
-		pStu->project[pStu->projectNum - 1].startDate.day = atoi(q);
+		pStu->project[pStu->projectNum - 1].startDate.day = atoi(p);
 		//读取结束时间（格式：yyyy-mm-dd）
+		p = strtok(NULL, "-");
+		pStu->project[pStu->projectNum - 1].endDate.year = atoi(p);
+		p = strtok(NULL, "-");
+		pStu->project[pStu->projectNum - 1].endDate.month = atoi(p);
 		p = strtok(NULL, "|");
-		q = strtok(p, "-");
-		pStu->project[pStu->projectNum - 1].endDate.year = atoi(q);
-		q = strtok(NULL, "-");
-		pStu->project[pStu->projectNum - 1].endDate.month = atoi(q);
-		q = strtok(NULL, "-");
-		pStu->project[pStu->projectNum - 1].endDate.day = atoi(q);
+		pStu->project[pStu->projectNum - 1].endDate.day = atoi(p);
 		//读取指导老师
 		p = strtok(NULL, "|");
 		strcpy(pStu->project[pStu->projectNum - 1].member[0], p);
 		//读取成员列表（以顿号分隔）
-		p = strtok(NULL, "|");
-		q = strtok(p, "、");
+		p = strtok(NULL, "、");
 		int i = 1;
-		while (q != NULL)
+		while (p != NULL)
 		{
-			strcpy(pStu->project[pStu->projectNum - 1].member[i], q);
-			q = strtok(NULL, "、");
+			strcpy(pStu->project[pStu->projectNum - 1].member[i], p);
+			p = strtok(NULL, "、");
 			i++;
 		}
 	}
@@ -294,6 +295,8 @@ void CInfoFile::ReadAwardInfo()
 	{
 		int id;	//学号-标识符
 
+		ifs.getline(buf, sizeof(buf));
+
 		//读取学号
 		char* p = strtok(buf, "|");
 		if (p != NULL)
@@ -307,8 +310,7 @@ void CInfoFile::ReadAwardInfo()
 
 		//根据学号查找学生
 		Student* pStu = FindStudentByID(id);
-		pStu->awardNum++;
-
+		pStu->award[pStu->awardNum - 1].id = id;
 		//读取奖项名称
 		p = strtok(NULL, "|");
 		strcpy(pStu->award[pStu->awardNum - 1].title, p);
@@ -319,24 +321,21 @@ void CInfoFile::ReadAwardInfo()
 		p = strtok(NULL, "|");
 		strcpy(pStu->award[pStu->awardNum - 1].level, p);
 		//读取获奖时间（格式：yyyy-mm-dd）
+		p = strtok(NULL, "-");
+		pStu->award[pStu->awardNum - 1].awardDate.year = atoi(p);
+		p = strtok(NULL, "-");
+		pStu->award[pStu->awardNum - 1].awardDate.month = atoi(p);
 		p = strtok(NULL, "|");
-		char* q = strtok(p, "-");
-		pStu->award[pStu->awardNum - 1].awardDate.year = atoi(q);
-		q = strtok(NULL, "-");
-		pStu->award[pStu->awardNum - 1].awardDate.month = atoi(q);
-		q = strtok(NULL, "-");
-		pStu->award[pStu->awardNum - 1].awardDate.day = atoi(q);
 		//读取指导老师
 		p = strtok(NULL, "|");
 		strcpy(pStu->award[pStu->awardNum - 1].member[0], p);
 		//读取成员列表（以顿号分隔）
-		p = strtok(NULL, "|");
-		q = strtok(p, "、");
+		p = strtok(NULL, "、");
 		int i = 1;
-		while (q != NULL)
+		while (p != NULL)
 		{
-			strcpy(pStu->award[pStu->awardNum - 1].member[i], q);
-			q = strtok(NULL, "、");
+			strcpy(pStu->award[pStu->awardNum - 1].member[i], p);
+			p = strtok(NULL, "、");
 			i++;
 		}
 	}
@@ -386,6 +385,11 @@ void CInfoFile::WriteScoreInfo()
 	//写入表头
 	ofs << "学号|课程名称|成绩" << endl;
 
+	if (student_head == NULL)
+	{
+		ofs.close();
+		return;
+	}
 	Node* pcur = student_head->next;
 	while (pcur != NULL)
 	{
@@ -413,6 +417,11 @@ void CInfoFile::WriteThesisInfo()
 	//写入表头
 	ofs << "学号|论文标题|期刊名称|页码信息|发表时间|论文级别|通讯作者|作者列表" << endl;
 
+	if (student_head == NULL)
+	{
+		ofs.close();
+		return;
+	}
 	Node* pcur = student_head->next;
 	while (pcur != NULL)
 	{
@@ -451,7 +460,12 @@ void CInfoFile::WriteProjectInfo()
 
 	//写入表头
 	ofs << "学号|项目名称|项目编号|开始时间|结束时间|指导老师|成员列表" << endl;
-
+	
+	if (student_head == NULL)
+	{
+		ofs.close();
+		return;
+	}
 	Node* pcur = student_head->next;
 	while (pcur != NULL)
 	{
@@ -490,6 +504,11 @@ void CInfoFile::WriteAwardInfo()
 	//写入表头
 	ofs << "学号|奖项名称|颁奖单位|获奖级别|获奖时间|指导老师|成员列表" << endl;
 
+	if (student_head == NULL)
+	{
+		ofs.close();
+		return;
+	}
 	Node* pcur = student_head->next;
 	while (pcur != NULL)
 	{
@@ -580,4 +599,72 @@ void CInfoFile::DeleteStudent(int pos)
 		pcur = pcur->next;
 		pos--;
 	}
+	student_num--;
+}
+
+bool CInfoFile::IsIDExist(int id)
+{
+	Node* pcur = student_head->next;
+	while (pcur != NULL)
+	{
+		Student* pStu = (Student*)pcur->data;
+		if (pStu->id == id)
+		{
+			return true;
+		}
+		pcur = pcur->next;
+	}
+	return false;
+}
+
+void CInfoFile::AddStudent(Student* stu)
+{
+	PushBack(student_head, stu);
+	student_num++;
+}
+
+//按学号排序
+void CInfoFile::SortByID()
+{
+	Node* pcur = student_head->next;
+	Node* ppre = student_head;
+	while (pcur != NULL)
+	{
+		Node* ptmp = pcur;
+		while (ptmp != NULL)
+		{
+			Student* pStu1 = (Student*)pcur->data;
+			Student* pStu2 = (Student*)ptmp->data;
+			if (pStu1->id > pStu2->id)
+			{
+				//交换数据
+				Student tmp = *pStu1;
+				*pStu1 = *pStu2;
+				*pStu2 = tmp;
+			}
+			ptmp = ptmp->next;
+		}
+		ppre = pcur;
+		pcur = pcur->next;
+	}
+}
+
+//全部信息读取
+void CInfoFile::ReadAllInfo()
+{
+	ReadStudentInfo();
+	ReadScoreInfo();
+	ReadThesisInfo();
+	ReadProjectInfo();
+	ReadAwardInfo();
+}
+
+//全部信息写入文件
+void CInfoFile::WriteAllInfo()
+{
+	WriteStudentInfo();
+	WriteScoreInfo();
+	WriteThesisInfo();
+	WriteProjectInfo();
+	WriteAwardInfo();
 }
