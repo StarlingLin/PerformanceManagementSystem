@@ -55,6 +55,8 @@ public:
 
 	//删除学生信息
 	void DeleteStudent(int pos);
+	//根据学号删除学生信息
+	void DeleteStudentByID(int id);
 
 	//学生数量
 	int GetStudentNum();
@@ -63,6 +65,8 @@ public:
 
 	//通过学号查找学生信息
 	Student* FindStudentByID(int id);
+	//通过姓名查找学生信息
+	Student** FindStudentByName(CString name, int* count);
 
 	//判断学号是否存在
 	bool IsIDExist(int id);

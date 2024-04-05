@@ -30,6 +30,8 @@ void CStuShowDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT1, m_edit_stuid);
 	DDX_Control(pDX, IDC_EDIT2, m_edit_stuname);
 	DDX_Control(pDX, IDC_EDIT4, m_edit_stugender);
+	DDX_Control(pDX, IDC_BUTTON1, m_btn_add);
+	DDX_Control(pDX, IDC_BUTTON3, m_btn_del);
 }
 
 
@@ -117,12 +119,16 @@ void CStuShowDlg::OnBnClickedCheck1()
 		m_edit_stuid.SetReadOnly(FALSE);
 		m_edit_stuname.SetReadOnly(FALSE);
 		m_edit_stugender.SetReadOnly(FALSE);
+		m_btn_add.EnableWindow(FALSE);
+		m_btn_del.EnableWindow(FALSE);
 	}
 	else
 	{
 		m_edit_stuid.SetReadOnly(TRUE);
 		m_edit_stuname.SetReadOnly(TRUE);
 		m_edit_stugender.SetReadOnly(TRUE);
+		m_btn_add.EnableWindow(TRUE);
+		m_btn_del.EnableWindow(TRUE);
 	}
 }
 
@@ -147,7 +153,7 @@ void CStuShowDlg::OnBnClickedButton4()
 
 	//修改学生信息
 	CInfoFile file;
-	file.ReadStudentInfo();
+	file.ReadAllInfo();
 
 	Student* tmp = file.GetStudent(nItem);
 	tmp->id = _wtoi(id);
@@ -155,7 +161,7 @@ void CStuShowDlg::OnBnClickedButton4()
 	strcpy_s(tmp->gender, GENDER_MAX, CT2A(gender));
 
 	//写入文件
-	file.WriteStudentInfo();
+	file.WriteAllInfo();
 
 	//更新列表控件
 	m_list_stuShow.DeleteAllItems();

@@ -668,3 +668,44 @@ void CInfoFile::WriteAllInfo()
 	WriteProjectInfo();
 	WriteAwardInfo();
 }
+
+//通过姓名查找学生信息
+Student** CInfoFile::FindStudentByName(CString name, int* count)
+{
+	Node* pcur = student_head->next;
+	Student** stu = (Student**)malloc(sizeof(Student*) * student_num);
+	*count = 0;
+	while (pcur != NULL)
+	{
+		Student* pStu = pcur->data;
+		//子串匹配
+		if (strstr(pStu->name, CT2A(name)) != NULL)
+		{
+			stu[*count] = pStu;
+			(*count)++;
+		}
+		pcur = pcur->next;
+	}
+	return stu;
+}
+
+//根据学号删除学生信息
+void CInfoFile::DeleteStudentByID(int id)
+{
+	Node* pcur = student_head->next;
+	Node* ppre = student_head;
+	while (pcur != NULL)
+	{
+		Student* pStu = pcur->data;
+		if (pStu->id == id)
+		{
+			ppre->next = pcur->next;
+			free(pcur->data);
+			free(pcur);
+			student_num--;
+			break;
+		}
+		ppre = pcur;
+		pcur = pcur->next;
+	}
+}
