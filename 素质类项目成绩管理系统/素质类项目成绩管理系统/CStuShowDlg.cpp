@@ -121,6 +121,7 @@ void CStuShowDlg::OnBnClickedCheck1()
 		m_edit_stugender.SetReadOnly(FALSE);
 		m_btn_add.EnableWindow(FALSE);
 		m_btn_del.EnableWindow(FALSE);
+		m_list_stuShow.EnableWindow(FALSE);
 	}
 	else
 	{
@@ -129,6 +130,7 @@ void CStuShowDlg::OnBnClickedCheck1()
 		m_edit_stugender.SetReadOnly(TRUE);
 		m_btn_add.EnableWindow(TRUE);
 		m_btn_del.EnableWindow(TRUE);
+		m_list_stuShow.EnableWindow(TRUE);
 	}
 }
 
