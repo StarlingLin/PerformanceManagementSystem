@@ -93,6 +93,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_WINDOWS;_DEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion)_tmp.pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -183,6 +184,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CAddScoreDlg.h" />
     <ClInclude Include="CAddStuDlg.h" />
     <ClInclude Include="CAwardManageDlg.h" />
     <ClInclude Include="CDisplayView.h" />
@@ -211,6 +213,7 @@
     <ClInclude Include="素质类项目成绩管理系统View.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CAddScoreDlg.cpp" />
     <ClCompile Include="CAddStuDlg.cpp" />
     <ClCompile Include="CAwardManageDlg.cpp" />
     <ClCompile Include="CDisplayView.cpp" />

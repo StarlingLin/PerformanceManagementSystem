@@ -32,6 +32,7 @@ void CStuShowDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT4, m_edit_stugender);
 	DDX_Control(pDX, IDC_BUTTON1, m_btn_add);
 	DDX_Control(pDX, IDC_BUTTON3, m_btn_del);
+	DDX_Control(pDX, IDC_BUTTON4, m_btn_cfmedit);
 }
 
 
@@ -122,6 +123,7 @@ void CStuShowDlg::OnBnClickedCheck1()
 		m_btn_add.EnableWindow(FALSE);
 		m_btn_del.EnableWindow(FALSE);
 		m_list_stuShow.EnableWindow(FALSE);
+		m_btn_cfmedit.EnableWindow(TRUE);
 	}
 	else
 	{
@@ -131,6 +133,7 @@ void CStuShowDlg::OnBnClickedCheck1()
 		m_btn_add.EnableWindow(TRUE);
 		m_btn_del.EnableWindow(TRUE);
 		m_list_stuShow.EnableWindow(TRUE);
+		m_btn_cfmedit.EnableWindow(FALSE);
 	}
 }
 

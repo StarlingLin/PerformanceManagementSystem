@@ -38,4 +38,5 @@ public:
 private:
 	CButton m_btn_add;
 	CButton m_btn_del;
+	CButton m_btn_cfmedit;
 };

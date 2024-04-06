@@ -78,16 +78,20 @@ void CInfoFile::ReadStudentInfo()
 		strcpy(tmp->gender, p);
 		//读取成绩数
 		p = strtok(NULL, "|");
-		tmp->scoreNum = atoi(p);
+		//tmp->scoreNum = atoi(p);
+		tmp->scoreNum = 0;
 		//读取论文数
 		p = strtok(NULL, "|");
-		tmp->thesisNum = atoi(p);
+		//tmp->thesisNum = atoi(p);
+		tmp->thesisNum = 0;
 		//读取项目数
 		p = strtok(NULL, "|");
-		tmp->projectNum = atoi(p);
+		//tmp->projectNum = atoi(p);
+		tmp->projectNum = 0;
 		//读取获奖数
 		p = strtok(NULL, "|");
-		tmp->awardNum = atoi(p);
+		//tmp->awardNum = atoi(p);
+		tmp->awardNum = 0;
 
 		//添加学生至链表
 		PushBack(student_head, tmp);
@@ -130,6 +134,8 @@ void CInfoFile::ReadScoreInfo()
 
 		//根据学号查找学生
 		Student* pStu = FindStudentByID(id);
+
+		pStu->scoreNum++;
 
 		//读取课程名称
 		p = strtok(NULL, "|");
@@ -174,6 +180,9 @@ void CInfoFile::ReadThesisInfo()
 		//根据学号查找学生
 		Student* pStu = FindStudentByID(id);
 		pStu->thesis[pStu->thesisNum - 1].id = id;
+
+		pStu->thesisNum++;
+
 		//读取论文标题
 		p = strtok(NULL, "|");
 		strcpy(pStu->thesis[pStu->thesisNum - 1].title, p);
@@ -242,6 +251,9 @@ void CInfoFile::ReadProjectInfo()
 		//根据学号查找学生
 		Student* pStu = FindStudentByID(id);
 		pStu->project[pStu->projectNum - 1].id = id;
+
+		pStu->projectNum++;
+
 		//读取项目名称
 		p = strtok(NULL, "|");
 		strcpy(pStu->project[pStu->projectNum - 1].title, p);
@@ -311,6 +323,9 @@ void CInfoFile::ReadAwardInfo()
 		//根据学号查找学生
 		Student* pStu = FindStudentByID(id);
 		pStu->award[pStu->awardNum - 1].id = id;
+
+		pStu->awardNum++;
+
 		//读取奖项名称
 		p = strtok(NULL, "|");
 		strcpy(pStu->award[pStu->awardNum - 1].title, p);

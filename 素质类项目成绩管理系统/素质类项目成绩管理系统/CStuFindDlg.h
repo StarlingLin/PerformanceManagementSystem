@@ -48,4 +48,6 @@ private:
 	CButton m_btn_del;
 public:
 	afx_msg void OnBnClickedButton2();
+private:
+	CButton m_btn_cfmedit;
 };

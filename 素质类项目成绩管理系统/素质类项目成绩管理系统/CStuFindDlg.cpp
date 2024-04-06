@@ -34,6 +34,7 @@ void CStuFindDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LIST1, m_list_find);
 	DDX_Control(pDX, IDC_BUTTON1, m_btn_find);
 	DDX_Control(pDX, IDC_BUTTON2, m_btn_del);
+	DDX_Control(pDX, IDC_BUTTON4, m_btn_cfmedit);
 }
 
 
@@ -82,6 +83,7 @@ void CStuFindDlg::OnBnClickedCheck1()
 		m_list_find.EnableWindow(FALSE);
 		m_btn_del.EnableWindow(FALSE);
 		m_btn_find.EnableWindow(FALSE);
+		m_btn_cfmedit.EnableWindow(TRUE);
 	}
 	else
 	{
@@ -94,6 +96,7 @@ void CStuFindDlg::OnBnClickedCheck1()
 		m_list_find.EnableWindow(TRUE);
 		m_btn_del.EnableWindow(TRUE);
 		m_btn_find.EnableWindow(TRUE);
+		m_btn_cfmedit.EnableWindow(FALSE);
 	}
 }
 
@@ -262,7 +265,7 @@ void CStuFindDlg::OnBnClickedButton4()
 	
 	file.WriteAllInfo();
 
-	MessageBox(_T("修改成功！", _T("提示")));
+	MessageBox(_T("修改成功！"), _T("提示"));
 
 	//刷新列表
 	OnBnClickedButton1();
