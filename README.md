@@ -26,15 +26,15 @@
 
 - 用户名密码正确则展示程序主体界面，主题界面通过静态拆分窗口拆分为左右两栏。
 
-- 左栏为导航栏，包括“个人信息”、“学生管理”、“成绩管理”、“素质类项”共四项选项（通过TreeControl实现）。其中素质类项展开三个子项，分别为“论文管理”、“项目管理”、“获奖管理”。点击每一个选项右栏均会将对应的Child类型对话框作为子页面展示。
+- 左栏为导航栏，包括“个人信息”、“学生管理”、“成绩管理”、“素质类项”共四项选项（通过TreeControl实现）。其中素质类项展开三个子项，分别为“论文管理”、“项目管理”、“获奖管理”。点击每一个选项右栏均会将对应的Child类型Dialog作为子页面展示。
 
   ![image-20240405214657573](./README/image-20240405214657573.png)
 
-- 对于个人信息界面，存在两个ComboBox。左侧为个人信息显示，用两个EditControl显示身份和用户名（只读），右侧为修改密码界面，需要在两个EditControl中输入相同的密码并点击确认Button来修改密码（md5加密后存储在login.ini中）。同时对于各种非法输入存在MessageBox的提醒。![image-20240405215616075](./README/image-20240405215616075.png)![image-20240405215633874](./README/image-20240405215633874.png)![image-20240405215653806](./README/image-20240405215653806.png)
+- 对于个人信息界面，存在两个GroupBox。左侧为个人信息显示，用两个EditControl显示身份和用户名（只读），右侧为修改密码界面，需要在两个EditControl中输入相同的密码并点击确认Button来修改密码（md5加密后存储在login.ini中）。同时对于各种非法输入存在MessageBox的提醒。![image-20240405215616075](./README/image-20240405215616075.png)![image-20240405215633874](./README/image-20240405215633874.png)![image-20240405215653806](./README/image-20240405215653806.png)
 
 - 对于学生管理界面，通过TabControl和引入CTabSheet类实现多标签页，存在两个标签页，分别为“显示学生列表”和“查找学生信息”。
 
-  - 对于显示学生列表标签页，存在一个ListControl和两个ComboBox，在ListControl中罗列学生信息（排序）。选中ListControl中对应行后可在右侧ComboBox中对该学生做出对应的修改。
+  - 对于显示学生列表标签页，存在一个ListControl和两个GroupBox，在ListControl中罗列学生信息（排序）。选中ListControl中对应行后可在右侧GroupBox中对该学生做出对应的修改。
 
     ![image-20240405220937412](./README/image-20240405220937412.png)
 
@@ -42,24 +42,34 @@
 
       ![image-20240405221621199](./README/image-20240405221621199.png)
 
-    + 若点击“编辑”CheckBox（复选框）将锁定其他操作并将ComboBox中上面相关的EditControl从只读设置为可编辑。
+    + 若点击“编辑”CheckBox（复选框）将锁定其他操作并将GroupBox中上面相关的EditControl从只读设置为可编辑。
 
       ![image-20240405221905584](./README/image-20240405221905584.png)
 
-  - 对于查找学生标签页，同样存在一个ListControl和两个CombolBox，基本操作相同，查找方式可选按学号或按姓名，支持模糊搜索（仅限按姓名时）。
+  - 对于查找学生标签页，同样存在一个ListControl和两个GroupBox，基本操作相同，查找方式可选按学号或按姓名，支持模糊搜索（仅限按姓名时）。
 
     ![image-20240405222650753](./README/image-20240405222650753.png)![image-20240405222708385](./README/image-20240405222708385.png)
 
-- 对于其他界面，暂未完工。
+- 对于成绩管理界面，存在两个GroupBox和一个LicstControl，大体操作思路与其他标签页类似不再赘述。
 
+  ![image-20240407135807923](./README/image-20240407135807923.png)![image-20240407135849564](./README/image-20240407135849564.png)
+  
+  ![image-20240407135906912](./README/image-20240407135906912.png)
+  
+- 对于素质类项界面，展示提示文字。
+  
+  ![image-20240407140820984](./README/image-20240407140820984.png)
+  
+- 对于其他界面，暂未完工。
+  
   
 
 工作流与其他：
 
 - ~~GUI界面使用EasyX图形库。~~（1.0版本，此方案已废弃，相关代码已重写）
 - ~~GUI界面使用基于EasyX图形库的HiEasyX扩展库。~~（2.0版本，此方案已废弃，相关代码已重写）
-- 使用MFC方法构建图形化界面。（第三版，目前版本号3.2.2）
-- 程序设计在Visual Stodio 2022进行。
+- 使用MFC方法构建图形化界面。（第三版，目前版本号3.2.3）
+- 程序设计在Visual Stodio 2022进行，最终使用setup工程生成安装包与卸载工具。
 - 使用Git管理代码，仓库上传至 github.com 与 gitee.com 进行代码托管。
 >（https://github.com/StarlingLin/PerformanceManagementSystem.git）  
 >（https://gitee.com/StarlingLin/PerformanceManagementSystem.git）

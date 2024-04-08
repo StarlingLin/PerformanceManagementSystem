@@ -37,7 +37,7 @@ void CInfoFile::WritePwd(char* name, char* pwd_md5)
 }
 
 //读取学生信息
-//学生信息文件格式：学号|姓名|性别|成绩数|论文数|项目数|获奖数
+//学生信息文件格式：学号|姓名|性别                       ////|成绩数|论文数|项目数|获奖数
 void CInfoFile::ReadStudentInfo()
 {
 	ifstream ifs(_F_STUDENT);
@@ -77,19 +77,19 @@ void CInfoFile::ReadStudentInfo()
 		p = strtok(NULL, "|");
 		strcpy(tmp->gender, p);
 		//读取成绩数
-		p = strtok(NULL, "|");
+		//p = strtok(NULL, "|");
 		//tmp->scoreNum = atoi(p);
 		tmp->scoreNum = 0;
 		//读取论文数
-		p = strtok(NULL, "|");
+		//p = strtok(NULL, "|");
 		//tmp->thesisNum = atoi(p);
 		tmp->thesisNum = 0;
 		//读取项目数
-		p = strtok(NULL, "|");
+		//p = strtok(NULL, "|");
 		//tmp->projectNum = atoi(p);
 		tmp->projectNum = 0;
 		//读取获奖数
-		p = strtok(NULL, "|");
+		//p = strtok(NULL, "|");
 		//tmp->awardNum = atoi(p);
 		tmp->awardNum = 0;
 
@@ -364,7 +364,8 @@ void CInfoFile::WriteStudentInfo()
 	ofstream ofs(_F_STUDENT);
 
 	//写入表头
-	ofs << "学号|姓名|性别|成绩数|论文数|项目数|获奖数" << endl;
+	//ofs << "学号|姓名|性别|成绩数|论文数|项目数|获奖数" << endl;
+	ofs << "学号|姓名|性别" << endl;
 
 	if (student_head == NULL)
 	{
@@ -380,11 +381,12 @@ void CInfoFile::WriteStudentInfo()
 		//写入学生信息
 		ofs << pStu->id << "|";
 		ofs << pStu->name << "|";
-		ofs << pStu->gender << "|";
-		ofs << pStu->scoreNum << "|";
-		ofs << pStu->thesisNum << "|";
-		ofs << pStu->projectNum << "|";
-		ofs << pStu->awardNum << endl;
+		//ofs << pStu->gender << "|";
+		ofs << pStu->gender << endl;
+		//ofs << pStu->scoreNum << "|";
+		//ofs << pStu->thesisNum << "|";
+		//ofs << pStu->projectNum << "|";
+		//ofs << pStu->awardNum << endl;
 
 		pcur = pcur->next;
 	}
