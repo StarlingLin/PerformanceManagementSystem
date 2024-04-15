@@ -162,6 +162,14 @@ protected:
 // 实现
 protected:
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void On32771();
+	afx_msg void On32772();
+	afx_msg void On32774();
+	afx_msg void On32773();
+	afx_msg void On32776();
+	afx_msg void On32777();
+	afx_msg void On32778();
 };
 
 CAboutDlg::CAboutDlg() noexcept : CDialogEx(IDD_ABOUTBOX)
@@ -184,6 +192,4 @@ void C素质类项目成绩管理系统App::OnAppAbout()
 }
 
 // C素质类项目成绩管理系统App 消息处理程序
-
-
 

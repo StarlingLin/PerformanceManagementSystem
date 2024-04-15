@@ -35,6 +35,13 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_MESSAGE(NM_D1, OnMyChange)
 	ON_MESSAGE(NM_D2, OnMyChange)
 	ON_MESSAGE(NM_D3, OnMyChange)
+	ON_COMMAND(ID_32771, &CMainFrame::On32771)
+	ON_COMMAND(ID_32772, &CMainFrame::On32772)
+	ON_COMMAND(ID_32774, &CMainFrame::On32774)
+	ON_COMMAND(ID_32773, &CMainFrame::On32773)
+	ON_COMMAND(ID_32776, &CMainFrame::On32776)
+	ON_COMMAND(ID_32777, &CMainFrame::On32777)
+	ON_COMMAND(ID_32778, &CMainFrame::On32778)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -230,4 +237,55 @@ LRESULT CMainFrame::OnMyChange(WPARAM wParam, LPARAM lParam)
 	}
 
 	return 0;
+}
+
+void CMainFrame::On32771()
+{
+	// TODO: 在此添加命令处理程序代码
+	exit(0);
+}
+
+
+
+void CMainFrame::On32772()
+{
+	// TODO: 在此添加命令处理程序代码
+	::PostMessage(AfxGetMainWnd()->GetSafeHwnd(), NM_A, (WPARAM)NM_A, (LPARAM)0);
+}
+
+
+void CMainFrame::On32774()
+{
+	// TODO: 在此添加命令处理程序代码
+	::PostMessage(AfxGetMainWnd()->GetSafeHwnd(), NM_B, (WPARAM)NM_B, (LPARAM)0);
+}
+
+
+void CMainFrame::On32773()
+{
+	// TODO: 在此添加命令处理程序代码
+	::PostMessage(AfxGetMainWnd()->GetSafeHwnd(), NM_C, (WPARAM)NM_C, (LPARAM)0);
+}
+
+
+
+void CMainFrame::On32776()
+{
+	// TODO: 在此添加命令处理程序代码
+	::PostMessage(AfxGetMainWnd()->GetSafeHwnd(), NM_D1, (WPARAM)NM_D1, (LPARAM)0);
+}
+
+
+void CMainFrame::On32777()
+{
+	// TODO: 在此添加命令处理程序代码
+	::PostMessage(AfxGetMainWnd()->GetSafeHwnd(), NM_D2, (WPARAM)NM_D2, (LPARAM)0);
+}
+
+
+
+void CMainFrame::On32778()
+{
+	// TODO: 在此添加命令处理程序代码
+	::PostMessage(AfxGetMainWnd()->GetSafeHwnd(), NM_D3, (WPARAM)NM_D3, (LPARAM)0);
 }
