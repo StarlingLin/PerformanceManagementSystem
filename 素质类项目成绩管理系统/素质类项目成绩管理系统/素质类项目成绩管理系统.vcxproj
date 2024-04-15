@@ -186,6 +186,7 @@
   <ItemGroup>
     <ClInclude Include="CAddScoreDlg.h" />
     <ClInclude Include="CAddStuDlg.h" />
+    <ClInclude Include="CAddThesisDlg.h" />
     <ClInclude Include="CAwardManageDlg.h" />
     <ClInclude Include="CDisplayView.h" />
     <ClInclude Include="CLoginDlg.h" />
@@ -215,6 +216,7 @@
   <ItemGroup>
     <ClCompile Include="CAddScoreDlg.cpp" />
     <ClCompile Include="CAddStuDlg.cpp" />
+    <ClCompile Include="CAddThesisDlg.cpp" />
     <ClCompile Include="CAwardManageDlg.cpp" />
     <ClCompile Include="CDisplayView.cpp" />
     <ClCompile Include="CLoginDlg.cpp" />

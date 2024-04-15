@@ -5,6 +5,7 @@
 #include "素质类项目成绩管理系统.h"
 #include "CThesisManageDlg.h"
 #include "InfoFile.h"
+#include "CAddThesisDlg.h"
 
 
 // CThesisManageDlg
@@ -53,6 +54,9 @@ BEGIN_MESSAGE_MAP(CThesisManageDlg, CFormView)
 	ON_BN_CLICKED(IDC_BUTTON4, &CThesisManageDlg::OnBnClickedButton4)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_LIST1, &CThesisManageDlg::OnLvnItemchangedList1)
 	ON_BN_CLICKED(IDC_CHECK3, &CThesisManageDlg::OnBnClickedCheck3)
+	ON_BN_CLICKED(IDC_BUTTON7, &CThesisManageDlg::OnBnClickedButton7)
+	ON_BN_CLICKED(IDC_BUTTON6, &CThesisManageDlg::OnBnClickedButton6)
+	ON_BN_CLICKED(IDC_BUTTON1, &CThesisManageDlg::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -258,4 +262,140 @@ void CThesisManageDlg::OnBnClickedCheck3()
 		pEdit = (CEdit*)GetDlgItem(IDC_EDIT8);
 		pEdit->SetReadOnly(TRUE);
 	}
+}
+
+
+void CThesisManageDlg::OnBnClickedButton7()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	UpdateData(TRUE);
+	CInfoFile file;
+	file.ReadAllInfo();
+	Student* stu = file.FindStudentByID(_ttoi(m_edit_id));
+	if (stu == NULL)
+	{
+		MessageBox(_T("学号不存在"), _T("提示"));
+		return;
+	}
+	Thesis* thesis = NULL;
+	POSITION pos = m_list.GetFirstSelectedItemPosition();
+	if (pos == NULL)
+	{
+		MessageBox(_T("请选择要修改的论文"), _T("提示"));
+		return;
+	}
+	int nItem = m_list.GetNextSelectedItem(pos);
+	for (int i = 0; i < stu->thesisNum; i++)
+	{
+		Thesis* t = stu->thesis + i;
+		if (CString(t->title) == m_edit_title)
+		{
+			thesis = t;
+			break;
+		}
+	}
+	if (thesis == NULL)
+	{
+		MessageBox(_T("论文不存在"), _T("提示"));
+		return;
+	}
+	//级别
+	int sel = m_cbx.GetCurSel();
+	CString grade;
+	m_cbx.GetLBText(sel, grade);
+	thesis->grade = *CT2A(grade);
+	//日期
+	SYSTEMTIME sysTime;
+	m_date.GetTime(&sysTime);
+	thesis->publishDate.year = sysTime.wYear;
+	thesis->publishDate.month = sysTime.wMonth;
+	thesis->publishDate.day = sysTime.wDay;
+	//标题
+	strcpy(thesis->title, CT2A(m_edit_title));
+	//期刊
+	strcpy(thesis->periodical, CT2A(m_edit_periodical));
+	//页码
+	strcpy(thesis->pagination, CT2A(m_edit_pagination));
+	//通讯作者
+	strcpy(thesis->author[0], CT2A(m_edit_author0));
+	//作者
+	CString authors = m_edit_author;
+	int curPos = 0;
+	int j = 1;
+	while (true)
+	{
+		CString author = authors.Tokenize(_T("、"), curPos);
+		if (author == _T(""))
+		{
+			break;
+		}
+		strcpy(thesis->author[j++], CT2A(author));
+	}
+	//保存
+	file.WriteAllInfo();
+	MessageBox(_T("修改成功"), _T("提示"));
+	OnBnClickedButton4();
+}
+
+
+void CThesisManageDlg::OnBnClickedButton6()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	UpdateData(TRUE);
+	CInfoFile file;
+	file.ReadAllInfo();
+	Student* stu = file.FindStudentByID(_ttoi(m_edit_id));
+	if (stu == NULL)
+	{
+		MessageBox(_T("学号不存在"), _T("提示"));
+		return;
+	}
+	Thesis* thesis = NULL;
+	POSITION pos = m_list.GetFirstSelectedItemPosition();
+	if (pos == NULL)
+	{
+		MessageBox(_T("请选择要删除的论文"), _T("提示"));
+		return;
+	}
+	int nItem = m_list.GetNextSelectedItem(pos);
+	for (int i = 0; i < stu->thesisNum; i++)
+	{
+		Thesis* t = stu->thesis + i;
+		if (CString(t->title) == m_edit_title)
+		{
+			thesis = t;
+			break;
+		}
+	}
+	if (thesis == NULL)
+	{
+		MessageBox(_T("论文不存在"), _T("提示"));
+		return;
+	}
+	//删除
+	for (int i = 0; i < stu->thesisNum; i++)
+	{
+		if (stu->thesis + i == thesis)
+		{
+			for (int j = i; j < stu->thesisNum - 1; j++)
+			{
+				stu->thesis[j] = stu->thesis[j + 1];
+			}
+			break;
+		}
+	}
+	stu->thesisNum--;
+	//保存
+	file.WriteAllInfo();
+	MessageBox(_T("删除成功"), _T("提示"));
+	OnBnClickedButton4();
+}
+
+
+void CThesisManageDlg::OnBnClickedButton1()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	CAddThesisDlg dlg;
+	dlg.DoModal();
+	OnBnClickedButton4();
 }

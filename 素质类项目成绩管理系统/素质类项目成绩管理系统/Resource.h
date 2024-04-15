@@ -28,6 +28,7 @@
 #define IDD_STU_FIND                    332
 #define IDD_ADDSTU                      334
 #define IDD_ADDSCORE                    337
+#define IDD_ADDTHESIS                   340
 #define IDC_EDIT1                       1000
 #define IDC_EDIT2                       1001
 #define IDC_BUTTON1                     1002
@@ -56,7 +57,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        340
+#define _APS_NEXT_RESOURCE_VALUE        343
 #define _APS_NEXT_COMMAND_VALUE         32772
 #define _APS_NEXT_CONTROL_VALUE         1016
 #define _APS_NEXT_SYMED_VALUE           326

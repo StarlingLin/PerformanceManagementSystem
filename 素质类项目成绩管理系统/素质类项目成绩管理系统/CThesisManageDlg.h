@@ -51,6 +51,10 @@ private:
 	CButton m_btn_add;
 	CButton m_btn_modify;
 	CButton m_btn_del;
+public:
+	afx_msg void OnBnClickedButton7();
+	afx_msg void OnBnClickedButton6();
+	afx_msg void OnBnClickedButton1();
 };
 
 
