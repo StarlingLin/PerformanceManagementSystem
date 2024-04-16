@@ -132,8 +132,6 @@ void CThesisManageDlg::OnInitialUpdate()
 	CFormView::OnInitialUpdate();
 
 	// TODO: 在此添加专用代码和/或调用基类
-	CInfoFile file;
-	file.ReadAllInfo();
 	m_list.SetExtendedStyle(LVS_EX_FULLROWSELECT | LVS_EX_GRIDLINES);
 	m_list.InsertColumn(0, _T("标题"), LVCFMT_LEFT, 200);
 	m_list.InsertColumn(1, _T("期刊"), LVCFMT_LEFT, 120);
@@ -285,10 +283,11 @@ void CThesisManageDlg::OnBnClickedButton7()
 		return;
 	}
 	int nItem = m_list.GetNextSelectedItem(pos);
+	CString title0 = m_list.GetItemText(nItem, 0);
 	for (int i = 0; i < stu->thesisNum; i++)
 	{
 		Thesis* t = stu->thesis + i;
-		if (CString(t->title) == m_edit_title)
+		if (CString(t->title) == title0)
 		{
 			thesis = t;
 			break;
@@ -358,10 +357,11 @@ void CThesisManageDlg::OnBnClickedButton6()
 		return;
 	}
 	int nItem = m_list.GetNextSelectedItem(pos);
+	CString title0 = m_list.GetItemText(nItem, 0);
 	for (int i = 0; i < stu->thesisNum; i++)
 	{
 		Thesis* t = stu->thesis + i;
-		if (CString(t->title) == m_edit_title)
+		if (CString(t->title) == title0)
 		{
 			thesis = t;
 			break;

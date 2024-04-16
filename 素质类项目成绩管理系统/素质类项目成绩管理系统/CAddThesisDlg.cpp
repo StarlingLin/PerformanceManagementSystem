@@ -69,6 +69,7 @@ void CAddThesisDlg::OnBnClickedButton7()
 	Thesis* pThesis = &pStu->thesis[pStu->thesisNum];
 	pStu->thesisNum++;
 	//获取编辑框内容
+	pThesis->id = _ttoi(m_edit_id);
 	strcpy(pThesis->title, CT2A(m_edit_title));
 	strcpy(pThesis->periodical, CT2A(m_edit_periodical));
 	strcpy(pThesis->pagination, CT2A(m_edit_pagination));
@@ -110,4 +111,12 @@ void CAddThesisDlg::OnOK()
 	// TODO: 在此添加专用代码和/或调用基类
 
 	//CDialogEx::OnOK();
+}
+
+
+void CAddThesisDlg::OnCancel()
+{
+	// TODO: 在此添加专用代码和/或调用基类
+
+	CDialogEx::OnCancel();
 }

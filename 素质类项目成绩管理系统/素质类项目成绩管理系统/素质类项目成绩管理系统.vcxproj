@@ -184,6 +184,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CAddProjectDlg.h" />
     <ClInclude Include="CAddScoreDlg.h" />
     <ClInclude Include="CAddStuDlg.h" />
     <ClInclude Include="CAddThesisDlg.h" />
@@ -214,6 +215,7 @@
     <ClInclude Include="素质类项目成绩管理系统View.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CAddProjectDlg.cpp" />
     <ClCompile Include="CAddScoreDlg.cpp" />
     <ClCompile Include="CAddStuDlg.cpp" />
     <ClCompile Include="CAddThesisDlg.cpp" />

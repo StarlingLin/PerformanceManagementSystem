@@ -33,4 +33,5 @@ private:
 public:
 	afx_msg void OnBnClickedButton7();
 	virtual void OnOK();
+	virtual void OnCancel();
 };
