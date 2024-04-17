@@ -16,6 +16,11 @@
 #include "CThesisManageDlg.h"
 #include "CProjectManageDlg.h"
 #include "CAwardManageDlg.h"
+#include "CAddStuDlg.h"
+#include "CAddScoreDlg.h"
+#include "CAddThesisDlg.h"
+#include "CAddProjectDlg.h"
+#include "CAddAwardDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -42,6 +47,11 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_COMMAND(ID_32776, &CMainFrame::On32776)
 	ON_COMMAND(ID_32777, &CMainFrame::On32777)
 	ON_COMMAND(ID_32778, &CMainFrame::On32778)
+	ON_COMMAND(ID_32779, &CMainFrame::On32779)
+	ON_COMMAND(ID_32780, &CMainFrame::On32780)
+	ON_COMMAND(ID_32781, &CMainFrame::On32781)
+	ON_COMMAND(ID_32782, &CMainFrame::On32782)
+	ON_COMMAND(ID_32783, &CMainFrame::On32783)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -288,4 +298,45 @@ void CMainFrame::On32778()
 {
 	// TODO: 在此添加命令处理程序代码
 	::PostMessage(AfxGetMainWnd()->GetSafeHwnd(), NM_D3, (WPARAM)NM_D3, (LPARAM)0);
+}
+
+
+void CMainFrame::On32779()
+{
+	// TODO: 在此添加命令处理程序代码
+	CAddStuDlg dlg;
+	dlg.DoModal();
+}
+
+
+void CMainFrame::On32780()
+{
+	// TODO: 在此添加命令处理程序代码
+	CAddScoreDlg dlg;
+	dlg.DoModal();
+}
+
+
+void CMainFrame::On32781()
+{
+	// TODO: 在此添加命令处理程序代码
+	CAddThesisDlg dlg;
+	dlg.DoModal();
+}
+
+
+
+void CMainFrame::On32782()
+{
+	// TODO: 在此添加命令处理程序代码
+	CAddProjectDlg dlg;
+	dlg.DoModal();
+}
+
+
+void CMainFrame::On32783()
+{
+	// TODO: 在此添加命令处理程序代码
+	CAddAwardDlg dlg;
+	dlg.DoModal();
 }

@@ -58,6 +58,11 @@ public:
 	afx_msg void On32776();
 	afx_msg void On32777();
 	afx_msg void On32778();
+	afx_msg void On32779();
+	afx_msg void On32780();
+	afx_msg void On32781();
+	afx_msg void On32782();
+	afx_msg void On32783();
 };
 
 

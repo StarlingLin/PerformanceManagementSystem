@@ -1,1 +1,37 @@
-﻿  素质类项目成绩管理系统.vcxproj -> Z:\PerformanceManagementSystem\素质类项目成绩管理系统\x64\Debug\素质类项目成绩管理系统.exe
+﻿  CAddAwardDlg.cpp
+  CAddProjectDlg.cpp
+  CAddScoreDlg.cpp
+Z:\PerformanceManagementSystem\素质类项目成绩管理系统\素质类项目成绩管理系统\CAddScoreDlg.cpp(92,41): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+  (编译源文件“/CAddScoreDlg.cpp”)
+  
+  CAddStuDlg.cpp
+  CAddThesisDlg.cpp
+  CAwardManageDlg.cpp
+  CDisplayView.cpp
+  CLoginDlg.cpp
+  CProjectManageDlg.cpp
+  CScoreManageDlg.cpp
+Z:\PerformanceManagementSystem\素质类项目成绩管理系统\素质类项目成绩管理系统\CScoreManageDlg.cpp(217,31): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+  (编译源文件“/CScoreManageDlg.cpp”)
+  
+  CSelectView.cpp
+  CStuFindDlg.cpp
+  CStuManageDlg.cpp
+  CStuShowDlg.cpp
+  CTermManageDlg.cpp
+  CThesisManageDlg.cpp
+  CUserDlg.cpp
+  MainFrm.cpp
+Z:\PerformanceManagementSystem\素质类项目成绩管理系统\素质类项目成绩管理系统\MainFrm.cpp(89,38): warning C4311: “类型强制转换”: 从“HICON”到“LONG”的指针截断
+  (编译源文件“/MainFrm.cpp”)
+  
+Z:\PerformanceManagementSystem\素质类项目成绩管理系统\素质类项目成绩管理系统\MainFrm.cpp(89,38): warning C4302: “类型强制转换”: 从“HICON”到“LONG”截断
+  (编译源文件“/MainFrm.cpp”)
+  
+  素质类项目成绩管理系统.cpp
+  素质类项目成绩管理系统Doc.cpp
+  正在生成代码...
+  正在编译...
+  素质类项目成绩管理系统View.cpp
+  正在生成代码...
+  素质类项目成绩管理系统.vcxproj -> Z:\PerformanceManagementSystem\素质类项目成绩管理系统\x64\Debug\素质类项目成绩管理系统.exe

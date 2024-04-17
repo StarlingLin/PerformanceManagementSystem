@@ -170,6 +170,7 @@ public:
 	afx_msg void On32776();
 	afx_msg void On32777();
 	afx_msg void On32778();
+	afx_msg void On32782();
 };
 
 CAboutDlg::CAboutDlg() noexcept : CDialogEx(IDD_ABOUTBOX)
@@ -182,6 +183,7 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
+	ON_COMMAND(ID_32782, &CAboutDlg::On32782)
 END_MESSAGE_MAP()
 
 // 用于运行对话框的应用程序命令
@@ -193,3 +195,9 @@ void C素质类项目成绩管理系统App::OnAppAbout()
 
 // C素质类项目成绩管理系统App 消息处理程序
 
+
+
+void CAboutDlg::On32782()
+{
+	// TODO: 在此添加命令处理程序代码
+}
