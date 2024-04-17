@@ -30,6 +30,7 @@
 #define IDD_ADDSCORE                    337
 #define IDD_ADDTHESIS                   340
 #define IDD_ADDPROJECT                  344
+#define IDD_ADDAWARD                    346
 #define IDC_EDIT1                       1000
 #define IDC_EDIT2                       1001
 #define IDC_BUTTON1                     1002
@@ -53,6 +54,7 @@
 #define IDC_BUTTON7                     1014
 #define IDC_CHECK3                      1015
 #define IDC_DATETIMEPICKER2             1016
+#define IDC_EDIT9                       1016
 #define ID_32771                        32771
 #define ID_32772                        32772
 #define ID_32773                        32773
@@ -66,7 +68,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        346
+#define _APS_NEXT_RESOURCE_VALUE        348
 #define _APS_NEXT_COMMAND_VALUE         32779
 #define _APS_NEXT_CONTROL_VALUE         1016
 #define _APS_NEXT_SYMED_VALUE           326

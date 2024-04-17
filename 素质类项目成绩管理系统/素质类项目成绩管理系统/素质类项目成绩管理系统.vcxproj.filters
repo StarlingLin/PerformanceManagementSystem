@@ -102,6 +102,9 @@
     <ClInclude Include="CAddProjectDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CAddAwardDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="素质类项目成绩管理系统.cpp">
@@ -177,6 +180,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CAddProjectDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CAddAwardDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

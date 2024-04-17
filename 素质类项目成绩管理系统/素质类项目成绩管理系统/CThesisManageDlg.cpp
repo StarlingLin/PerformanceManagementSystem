@@ -318,6 +318,10 @@ void CThesisManageDlg::OnBnClickedButton7()
 	//通讯作者
 	strcpy(thesis->author[0], CT2A(m_edit_author0));
 	//作者
+	for (int i = 1; i < MEMBER_MAX; i++)
+	{
+		strcpy(thesis->author[i], "");
+	}
 	CString authors = m_edit_author;
 	int curPos = 0;
 	int j = 1;

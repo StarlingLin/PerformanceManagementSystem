@@ -340,7 +340,8 @@ void CInfoFile::ReadAwardInfo()
 		pStu->award[pStu->awardNum - 1].awardDate.year = atoi(p);
 		p = strtok(NULL, "-");
 		pStu->award[pStu->awardNum - 1].awardDate.month = atoi(p);
-		p = strtok(NULL, "|");
+		p = strtok(NULL, "|");	//bug:不能读取//已修复
+		pStu->award[pStu->awardNum - 1].awardDate.day = atoi(p);
 		//读取指导老师
 		p = strtok(NULL, "|");
 		strcpy(pStu->award[pStu->awardNum - 1].member[0], p);

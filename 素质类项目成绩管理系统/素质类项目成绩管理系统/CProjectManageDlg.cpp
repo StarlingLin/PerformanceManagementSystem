@@ -292,6 +292,11 @@ void CProjectManageDlg::OnBnClickedButton7()
 	//指导教师
 	strcpy_s(project->member[0], CT2A(m_edit_teacher.GetBuffer()));
 	//项目成员
+	/*先清空*/
+	for (int i = 1; i < MEMBER_MAX; i++)
+	{
+		strcpy_s(project->member[i], "");
+	}
 	CString authors = m_edit_authors;
 	int i = 1;
 	int curPos = 0;
