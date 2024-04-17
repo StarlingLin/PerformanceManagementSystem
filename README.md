@@ -80,7 +80,7 @@
 
 - ~~GUI界面使用EasyX图形库。~~（1.0版本，此方案已废弃，相关代码已重写）
 - ~~GUI界面使用基于EasyX图形库的HiEasyX扩展库。~~（2.0版本，此方案已废弃，相关代码已重写）
-- 使用MFC方法构建图形化界面。（第三版，目前版本号3.2.3）
+- 使用MFC方法构建图形化界面。（第三版，目前版本号3.2.9）
 - 程序设计在Visual Stodio 2022进行，最终使用Microsoft Visual Studio Installer 生成安装包与卸载工具。
 - 使用Git管理代码，仓库上传至 github.com 与 gitee.com 进行代码托管。
 >（https://github.com/StarlingLin/PerformanceManagementSystem.git）  
