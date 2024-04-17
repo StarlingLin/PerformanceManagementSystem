@@ -5,22 +5,36 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "素质类项目成绩管理系统", "素质类项目成绩管理系统\素质类项目成绩管理系统.vcxproj", "{60FA624D-484E-4C06-89DC-A72E89631D55}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{39BFFA39-2FCF-44ED-AEFD-9EC80ED6C9E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
+		useforsetup|x64 = useforsetup|x64
+		useforsetup|x86 = useforsetup|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{60FA624D-484E-4C06-89DC-A72E89631D55}.Debug|x64.ActiveCfg = Debug|x64
 		{60FA624D-484E-4C06-89DC-A72E89631D55}.Debug|x64.Build.0 = Debug|x64
 		{60FA624D-484E-4C06-89DC-A72E89631D55}.Debug|x86.ActiveCfg = Debug|Win32
 		{60FA624D-484E-4C06-89DC-A72E89631D55}.Debug|x86.Build.0 = Debug|Win32
-		{60FA624D-484E-4C06-89DC-A72E89631D55}.Release|x64.ActiveCfg = Release|x64
-		{60FA624D-484E-4C06-89DC-A72E89631D55}.Release|x64.Build.0 = Release|x64
+		{60FA624D-484E-4C06-89DC-A72E89631D55}.Release|x64.ActiveCfg = Debug|x64
+		{60FA624D-484E-4C06-89DC-A72E89631D55}.Release|x64.Build.0 = Debug|x64
 		{60FA624D-484E-4C06-89DC-A72E89631D55}.Release|x86.ActiveCfg = Release|Win32
 		{60FA624D-484E-4C06-89DC-A72E89631D55}.Release|x86.Build.0 = Release|Win32
+		{60FA624D-484E-4C06-89DC-A72E89631D55}.useforsetup|x64.ActiveCfg = useforsetup|x64
+		{60FA624D-484E-4C06-89DC-A72E89631D55}.useforsetup|x64.Build.0 = useforsetup|x64
+		{60FA624D-484E-4C06-89DC-A72E89631D55}.useforsetup|x86.ActiveCfg = useforsetup|Win32
+		{60FA624D-484E-4C06-89DC-A72E89631D55}.useforsetup|x86.Build.0 = useforsetup|Win32
+		{39BFFA39-2FCF-44ED-AEFD-9EC80ED6C9E7}.Debug|x64.ActiveCfg = Debug
+		{39BFFA39-2FCF-44ED-AEFD-9EC80ED6C9E7}.Debug|x86.ActiveCfg = Debug
+		{39BFFA39-2FCF-44ED-AEFD-9EC80ED6C9E7}.Release|x64.ActiveCfg = Release
+		{39BFFA39-2FCF-44ED-AEFD-9EC80ED6C9E7}.Release|x86.ActiveCfg = Release
+		{39BFFA39-2FCF-44ED-AEFD-9EC80ED6C9E7}.useforsetup|x64.ActiveCfg = Debug
+		{39BFFA39-2FCF-44ED-AEFD-9EC80ED6C9E7}.useforsetup|x86.ActiveCfg = Debug
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
